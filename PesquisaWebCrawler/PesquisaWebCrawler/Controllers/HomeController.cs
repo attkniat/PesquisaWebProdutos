@@ -40,12 +40,18 @@ namespace PesquisaWebCrawler.Controllers
                         .Where(node => node.GetAttributeValue("class", "")
                         .Equals("c-highlight-box")).ToList();
 
+                    var comidas = new List<Refeição>();
+
                     foreach (var produtos in divsProdutos)
                     {
-                        var nomeProduto = produtos?.Descendants("h2")?.FirstOrDefault().InnerText;
-                        var descricaoProduto = produtos?.Descendants("p")?.FirstOrDefault().InnerText;
-                        var imagemProduto = produtos?.Descendants("img")?.FirstOrDefault().ChildAttributes("src").FirstOrDefault().Value;
-                        var linkProduto = produtos?.Descendants("a")?.FirstOrDefault().ChildAttributes("href").FirstOrDefault().Value;
+                        var comida = new Refeição
+                        {
+                            nomeProduto = produtos?.Descendants("h2")?.FirstOrDefault().InnerText,
+                            descricaoProduto = produtos?.Descendants("p")?.FirstOrDefault().InnerText,
+                            imagemProduto = produtos?.Descendants("img")?.FirstOrDefault().ChildAttributes("src").FirstOrDefault().Value,
+                            linkProduto = produtos?.Descendants("a")?.FirstOrDefault().ChildAttributes("href").FirstOrDefault().Value
+                        };
+                        comidas.Add(comida);
                     }
                 }
             }
