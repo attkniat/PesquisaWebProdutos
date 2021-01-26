@@ -1,8 +1,6 @@
 ﻿@{
-	ViewData["Title"] = "Home Page";
-	//Layout = "~/Views/Shared/_LayoutProfessorAdicionaNovoCurso.cshtml";
+	ViewData["Title"] = "Home";
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +8,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" href="~/cssProfessorCriaNovoCurso/StyleProfessorAdicionaNovoCurso.css" />
-	<title>EFacil Cursos | Cadastrar Curso</title>
+	<title>Produtos | Pesquisar</title>
 	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 	<script src="https://kit.fontawesome.com/008a52c14b.js" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-	@*<script src="~/jsProfessorAdicionaNovoCurso/ScriptProfessorAdicionaNovoCurso.js"></script>*@
 	<!-- #endregion -->
 </head>
 <body>
@@ -26,15 +21,35 @@
 		</div>
 		<br />
 		<div class="input-group margin">
-			<input type="text" name ="produtoPesquisado"class="form-control">
+			<input type="text" name="produtoPesquisado" class="form-control">
 			<span class="input-group-btn">
 				<button type="submit" class="btn btn-info btn-flat">Pesquisar</button>
 			</span>
 		</div>
-		@section Scripts {
-			@*<script src="~/jsProfessorAdicionaNovoCurso/ScriptProfessorAdicionaNovoCurso.js"></script>*@
-			@*<script src="~/jsProfessorAdicionaAula/ScriptFileAttachmentPlugin.js"></script>*@
-		}
+
+		<div class="produtosListagem">
+			@if (ViewBag.ProdutosLista != null)
+			{
+				foreach (var listaDeProdutos in ViewBag.ProdutosLista)
+				{
+					<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+						<div class="thumbnail product-item" style="height:100%">
+							<img class="img-responsive" title="Ver detalhes"
+								 style="cursor:pointer; height:160px; width:260px" src="~/ProductImages/@listaDeProdutos.imagemProduto" />
+							<div class="caption">
+								<h5>@listaDeProdutos.nomeProduto</h5>
+								<p>@listaDeProdutos.descricaoProduto</p>
+							</div>
+						</div>
+					</div>
+				}
+			}
+			else
+			{
+				<br />
+				<h3>Sem produtos pesquisados</h3>
+			}
+		</div>
 	}
 </body>
 </html>

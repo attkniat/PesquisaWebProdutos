@@ -24,6 +24,14 @@ namespace PesquisaWebCrawler.Controllers
 
         #endregion
 
+        #region INDEX
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Index(string produtoPesquisado)
         {
             if (produtoPesquisado != null)
@@ -52,10 +60,15 @@ namespace PesquisaWebCrawler.Controllers
                             linkProduto = produtos?.Descendants("a")?.FirstOrDefault().ChildAttributes("href").FirstOrDefault().Value
                         };
                         comidas.Add(comida);
+                        ViewBag.ProdutosLista = comidas;
+
+                        return View(ViewBag.ProdutosLista);
                     }
                 }
             }
             return View();
         }
+
+        #endregion
     }
 }
