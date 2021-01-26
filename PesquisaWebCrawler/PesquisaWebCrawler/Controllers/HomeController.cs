@@ -20,10 +20,7 @@ namespace PesquisaWebCrawler.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        #endregion
 
         public IActionResult Index()
         {
