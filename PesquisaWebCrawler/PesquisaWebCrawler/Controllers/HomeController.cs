@@ -14,7 +14,6 @@ namespace PesquisaWebCrawler.Controllers
 {
     public class HomeController : Controller
     {
-
         #region DBCONTEXT
 
         private RefeicaoDBContext _Context;
@@ -87,6 +86,5 @@ namespace PesquisaWebCrawler.Controllers
         }
 
         #endregion
-
     }
 }
