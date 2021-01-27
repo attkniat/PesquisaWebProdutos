@@ -69,7 +69,10 @@ namespace PesquisaWebCrawler.Controllers
                     return View(ViewBag.ProdutosLista);
                 }
             }
-            return View();
+            else
+            {
+                return View();
+            }
         }
 
         #endregion

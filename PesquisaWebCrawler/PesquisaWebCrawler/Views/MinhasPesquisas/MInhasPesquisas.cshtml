@@ -1,0 +1,68 @@
+﻿
+@{
+	ViewData["Title"] = "MInhasPesquisas";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- #region SCRIPTS LINKS -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet" />
+	<title>Produtos | Pesquisar</title>
+	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+	<script src="https://kit.fontawesome.com/008a52c14b.js" crossorigin="anonymous"></script>
+	<!-- #endregion -->
+</head>
+<body>
+	@using (Html.BeginForm("MinhasPesquisas", "MinhasPesquisas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+	{
+		<div align="center" class="buscar-produto-container">
+			<h1 class="display-4">Histórico de Pesquisa</h1>
+		</div>
+		<br />
+		<div class="row product-container">
+			@if (ViewBag.historicoDePesquisa != null)
+			{
+				<div class="box-body">
+					<p>@ViewBag.qdtDePesquisa Resultados</p>
+					<table id="example1" class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Imagem Ilustrativa</th>
+								<th>Nome</th>
+								<th>Descrição</th>
+							</tr>
+						</thead>
+						@foreach (var listaDeProdutos in ViewBag.historicoDePesquisa)
+						{
+							<tbody>
+								<tr>
+									<td>
+										<img class="img-responsive" title="Ver detalhes" style="cursor:pointer; height:160px; width:260px" src="@listaDeProdutos.imagemProduto" />
+									</td>
+									<td>@listaDeProdutos.nomeProduto</td>
+									<td>@listaDeProdutos.descricaoProduto</td>
+								</tr>
+							</tbody>
+						}
+					</table>
+				</div>
+				<tfoot>
+					<tr>
+						<th></th>
+						<th>Nome</th>
+						<th>Descrição</th>
+					</tr>
+				</tfoot>
+			}
+			else
+			{
+				<br />
+				<h3>Histórico Vazio</h3>
+			}
+		</div>
+	}
+</body>
+</html>
