@@ -61,9 +61,8 @@ namespace PesquisaWebCrawler.Controllers
                         };
                         comidas.Add(comida);
                         ViewBag.ProdutosLista = comidas;
-
-                        return View(ViewBag.ProdutosLista);
                     }
+                    return View(ViewBag.ProdutosLista);
                 }
             }
             return View();
