@@ -1,7 +1,7 @@
 ﻿
 @{
 	ViewData["Title"] = "MInhasPesquisas";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+	Layout = "~/Views/Shared/_LayoutMinhasPesquisas.cshtml";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet" />
 	<title>Produtos | Pesquisar</title>
 	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+	<link rel="stylesheet" href="~/admin-lte/css/AdminLTE.min.css">
 	<script src="https://kit.fontawesome.com/008a52c14b.js" crossorigin="anonymous"></script>
 	<!-- #endregion -->
 </head>
@@ -30,9 +31,9 @@
 					<table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th>Imagem Ilustrativa</th>
-								<th>Nome</th>
-								<th>Descrição</th>
+								<th><div style="display: flex; justify-content: center;">Imagem Ilustrativa</div></th>
+								<th><div style="display: flex; justify-content: center;">Nome</div></th>
+								<th><div style="display: flex; justify-content: center;">Descrição</div></th>
 							</tr>
 						</thead>
 						@foreach (var listaDeProdutos in ViewBag.historicoDePesquisa)
@@ -44,18 +45,12 @@
 									</td>
 									<td>@listaDeProdutos.nomeProduto</td>
 									<td>@listaDeProdutos.descricaoProduto</td>
+									<td></td>
 								</tr>
 							</tbody>
 						}
 					</table>
 				</div>
-				<tfoot>
-					<tr>
-						<th></th>
-						<th>Nome</th>
-						<th>Descrição</th>
-					</tr>
-				</tfoot>
 			}
 			else
 			{
