@@ -6,7 +6,6 @@ Fonte de Dados : www.giraffas.com.br
 ### Tecnologias utilizadas
 - [x] Asp.net Core
 - [x] C#
-- [x] SQL Server
 - [x] Entity Framework 6
 - [x] VS Studio 2019
 - [x] MSSQL
