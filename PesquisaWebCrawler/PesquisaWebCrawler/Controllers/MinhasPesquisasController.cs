@@ -32,7 +32,7 @@ namespace PesquisaWebCrawler.Controllers
 
                 return View();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 BadRequest($"Não foi possivel localizar históricos");
             }
