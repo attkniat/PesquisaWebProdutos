@@ -26,14 +26,14 @@
 				<button type="submit" class="btn btn-info btn-flat">Pesquisar</button>
 			</span>
 		</div>
-
-		<div class="produtosListagem">
+		<div class="row product-container">
 			@if (ViewBag.ProdutosLista != null)
 			{
 				foreach (var listaDeProdutos in ViewBag.ProdutosLista)
 				{
 					<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
 						<div class="thumbnail product-item" style="height:100%">
+							<hr />
 							<img class="img-responsive" title="Ver detalhes"
 								 style="cursor:pointer; height:160px; width:260px" src="@listaDeProdutos.imagemProduto" />
 							<div class="caption">
