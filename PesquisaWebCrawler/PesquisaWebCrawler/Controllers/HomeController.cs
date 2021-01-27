@@ -8,18 +8,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PesquisaWebCrawler.Models;
 using HtmlAgilityPack;
+using PesquisaWebCrawler.DataLayer;
 
 namespace PesquisaWebCrawler.Controllers
 {
     public class HomeController : Controller
     {
-        #region logger
 
-        private readonly ILogger<HomeController> _logger;
+        #region DBCONTEXT
 
-        public HomeController(ILogger<HomeController> logger)
+        private RefeicaoDBContext _Context;
+
+        public HomeController(RefeicaoDBContext context)
         {
-            _logger = logger;
+            _Context = context;
         }
 
         #endregion
@@ -61,6 +63,9 @@ namespace PesquisaWebCrawler.Controllers
                         };
                         comidas.Add(comida);
                         ViewBag.ProdutosLista = comidas;
+
+                        _Context.Refeicao.Add(comida);
+                        _Context.SaveChanges();
                     }
                     return View(ViewBag.ProdutosLista);
                 }
