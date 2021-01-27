@@ -37,7 +37,10 @@
 							<img class="img-responsive" title="Ver detalhes"
 								 style="cursor:pointer; height:160px; width:260px" src="@listaDeProdutos.imagemProduto" />
 							<div class="caption">
-								<h5>@listaDeProdutos.nomeProduto</h5>
+								@{
+									string nome = @listaDeProdutos.nomeProduto.ToString();
+								}
+								@Html.ActionLink(nome, "ProdutoDetalhes", new { nomeProduto = listaDeProdutos.nomeProduto, produtoDescricao = listaDeProdutos.descricaoProduto, imagemPath = listaDeProdutos.imagemProduto })
 								<p>@listaDeProdutos.descricaoProduto</p>
 							</div>
 						</div>

@@ -69,5 +69,19 @@ namespace PesquisaWebCrawler.Controllers
         }
 
         #endregion
+
+        #region PRODUTO_DETALHES
+
+        public IActionResult ProdutoDetalhes(string nomeProduto, string produtoDescricao, string imagemPath)
+        {
+            ViewBag.NomeProduto = nomeProduto;
+            ViewBag.DescricaoProduto = produtoDescricao;
+            ViewBag.imagemProduto = imagemPath;
+
+            return View();
+        }
+
+        #endregion
+
     }
 }

@@ -1,0 +1,30 @@
+﻿@{
+	ViewData["Title"] = "ProdutoDetalhes";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- #region SCRIPTS LINKS -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet" />
+		<title>Detalhes de Produto</title>
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<script src="https://kit.fontawesome.com/008a52c14b.js" crossorigin="anonymous"></script>
+	<!-- #endregion -->
+</head>
+<body>
+	<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+		<div class="thumbnail product-item" style="height:100%">
+			<hr />
+			<img class="img-responsive" title="Ver detalhes"
+				 style="cursor:pointer; height:160px; width:260px" src="@ViewBag.imagemProduto" />
+			<div class="caption">
+				<h5>@ViewBag.NomeProduto</h5>
+				<p>@ViewBag.DescricaoProduto</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
